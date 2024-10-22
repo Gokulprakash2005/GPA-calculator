@@ -15,12 +15,14 @@
                     </select>
                     </td>
                    <td><input type="number" class="form-control form-control-lg mt-2" id="Course_credit" name="Course_credit" required  ></td>
+                   <td><i class="fa-solid fa-xmark mt-4 " onclick="remove(event)"></i></td>
               </tr>
             `;
         document.getElementById("addrow").insertAdjacentHTML('beforeend',newRow);
        }
        
-       function addGPA() {
+       function addGPA() 
+       {
         var totalGradescredits = 0;
         var totalCredits = 0;
         document.querySelectorAll("#addrow tr").forEach(row => {
@@ -31,5 +33,10 @@
         });
         var gpa =totalGradescredits / totalCredits;
         document.getElementById("result").innerHTML = "Your GPA is: " + gpa;
+       }
+
+    function remove(event)
+    {
+        event.target.closest('tr').remove();
     }
     
